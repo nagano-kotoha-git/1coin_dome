@@ -1,0 +1,1085 @@
+/* =========================
+    色変数
+========================= */
+@use "common" as *;
+
+
+.page-loader {
+    position: fixed;
+    inset: 0;
+    background: $main-color;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__inner {
+        text-align: center;
+        color: #fff;
+        padding: 0 20px;
+
+        img {
+            width: 100%;
+            max-width: 560px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 14px;
+            letter-spacing: 0.2em;
+            opacity: 0.8;
+        }
+    }
+}
+
+body.is-loading {
+    overflow: hidden;
+}
+
+/* =========================
+   YouTube BLOCK（共通）
+========================= */
+.yt-block {
+    max-width: 960px;
+    margin: 0 auto 26px;
+
+    &__inner {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: #000;
+        border-radius: 6px;
+        overflow: hidden;
+
+        iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    }
+
+    &__caption {
+        margin-top: 6px;
+        text-align: right;
+        font-size: 1rem;
+        font-weight: 400;
+        color: #9a9a9a;
+        letter-spacing: 0.05em;
+    }
+}
+
+
+/* =========================
+   吹き出し（共通）
+========================= */
+.bubble {
+    position: relative;
+    display: inline-block;
+    padding: 10px 23px;
+
+    border: 3px solid #1b99e9;
+    border-radius: 3px;
+    background-color: #ffffff;
+
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #1b99e9;
+
+    transform: rotate(-3deg);
+    transform-origin: left bottom;
+}
+
+.bubble::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+
+    border-style: solid;
+    border-width: 16px 16.5px 0 16.5px;
+    border-color: #1b99e9 transparent transparent;
+
+    translate: -50% 100%;
+}
+
+.bubble::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+
+    border-style: solid;
+    border-width: 11.8px 12.2px 0 12.2px;
+    border-color: #ffffff transparent transparent;
+
+    translate: -50% 100%;
+}
+
+
+/* =========================
+   POINTS LIST（共通）
+========================= */
+.points-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: grid;
+    gap: 28px;
+
+    &__item,
+    .crewfirst__item {
+        display: grid;
+        grid-template-columns: 86px 1fr;
+        align-items: flex-start;
+    }
+
+    &__no,
+    .crewfirst__no {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: $main-color;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    &__no-label,
+    .crewfirst__no-label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 2rem;
+        line-height: 1;
+        gap: 2px;
+        margin-top: 4px;
+
+        span {
+            display: block;
+        }
+    }
+
+    &__no-num,
+    .crewfirst__no-num {
+        font-size: 6rem;
+        line-height: 0.9;
+    }
+
+    &__text,
+    .crewfirst__text {
+        color: $text-color;
+        font-size: 1.4rem;
+        font-weight: 600;
+        line-height: 1.9;
+        letter-spacing: 0.03em;
+
+        strong {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+    }
+}
+
+
+/* =========================
+   BUTTON（共通）
+========================= */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: min(55vw, 360px);
+    height: 64px;
+    padding: 0 32px;
+    font-weight: 600;
+    font-size: 1.6rem;
+    letter-spacing: 0.03em;
+    border-radius: 999px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn--primary {
+    background: $main-color;
+    color: #fff;
+
+    &:hover {
+        background: darken($main-color, 6%);
+    }
+}
+
+
+/* =========================
+   Animation（共通）
+========================= */
+.js-fadeup {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    will-change: opacity, transform;
+
+    &.is-show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.js-slidein-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    will-change: opacity, transform;
+
+    &.is-show {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.js-slidein-left-illust {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    will-change: opacity, transform;
+
+    &.is-show {
+        opacity: 0.1;
+        transform: translateX(0);
+    }
+}
+
+.js-pop {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96) rotate(-3deg);
+    transform-origin: left bottom;
+    transition: opacity 0.65s ease, transform 0.65s ease;
+    will-change: opacity, transform;
+
+    &.is-show {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotate(-3deg);
+    }
+}
+
+.js-stagger-item {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    will-change: opacity, transform;
+
+    &.is-show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.js-btn {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    will-change: opacity, transform;
+
+    &.is-show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   TOP SLIDER
+========================= */
+.top-slider {
+    width: 100%;
+
+    &__track {
+        width: 100%;
+    }
+
+    &__slide {
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+}
+
+
+/* =========================
+   ABOUT（SP）
+========================= */
+.about {
+    padding: 44px 16px 56px;
+
+    background: url("../img/top/about_bg.jpg") center / cover no-repeat;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.6);
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        height: 35%;
+        background: linear-gradient(to bottom,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.6) 40%,
+                rgba(255, 255, 255, 1) 100%);
+        pointer-events: none;
+    }
+
+    &__inner {
+        position: relative;
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: clamp(28px, 5.6vw, 42px);
+        margin-bottom: 18px;
+
+        &-em {
+            color: $main-color;
+        }
+    }
+
+    .js-reveal-title,
+    .js-reveal-card {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+        will-change: opacity, transform;
+    }
+
+    .js-reveal-title.is-show,
+    .js-reveal-card.is-show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    &__card {
+        position: relative;
+        z-index: 10;
+    }
+}
+
+
+/* =========================
+   CREWFIRST（SP）
+========================= */
+.crewfirst {
+    padding: 40px 16px 64px;
+
+    &__content {
+        position: relative;
+        padding-top: 20px;
+    }
+
+    &__vertical {
+        position: absolute;
+        top: 0;
+        right: 3%;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        line-height: 1.3;
+        font-size: clamp(42px, 10vw, 54px);
+
+        &-em {
+            color: $main-color;
+            display: inline-block;
+        }
+    }
+
+    &__illust {
+        position: absolute;
+        left: 0;
+        top: 10%;
+        width: min(92vw, 520px);
+        height: min(92vw, 520px);
+        pointer-events: none;
+        background: url("../img/top/crewfirst_illust.png") center / contain no-repeat;
+        z-index: -1;
+        opacity: 0;
+    }
+
+    &__points {
+        margin-top: clamp(480px, 30vw, 600px);
+    }
+
+    .bubble {
+        margin-left: 20px;
+        margin-bottom: 16px;
+    }
+
+    &__btn-wrap {
+        margin-top: 34px;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
+/* =========================
+   STRENGTH（SP）
+========================= */
+.strength {
+    padding: 40px 16px 64px;
+
+    &__main {
+        margin-top: 18px;
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: clamp(34px, 7vw, 42px);
+        line-height: 1.25;
+        letter-spacing: 0.03em;
+
+        &-em {
+            color: $main-color;
+        }
+    }
+
+    &__points {
+        margin-top: 22px;
+    }
+
+    .bubble {
+        margin-top: 40px;
+        margin-left: 16px;
+        margin-bottom: 18px;
+    }
+
+    &__btn-wrap {
+        margin-top: 34px;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__visual {
+        position: relative;
+        margin-top: 26px;
+        width: min(92vw, 520px);
+        height: min(72vw, 420px);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &__photo {
+        position: absolute;
+        width: 100%;
+        max-width: 240px;
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+        }
+
+        &--top {
+            right: 0;
+            top: 0;
+            transform: rotate(4deg);
+            transform-origin: left top;
+            z-index: 2;
+        }
+
+        &--bottom {
+            left: 0;
+            bottom: 0;
+            transform: rotate(-4deg);
+            transform-origin: right bottom;
+            z-index: 1;
+        }
+    }
+
+    /* strength固有 */
+    .js-slidein-left {
+        opacity: 0;
+        transform: translateX(-40px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+        will-change: opacity, transform;
+
+        &.is-show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .js-fadeup-photo1,
+    .js-fadeup-photo2 {
+        opacity: 0;
+        transition: opacity 0.6s ease;
+        will-change: opacity;
+
+        &.is-show {
+            opacity: 1;
+        }
+
+        img {
+            transform: translateY(24px);
+            transition: transform 0.6s ease;
+            will-change: transform;
+        }
+
+        &.is-show img {
+            transform: translateY(0);
+        }
+    }
+}
+
+/* =========================
+   WORKSTYLE（SP）
+========================= */
+.workstyle {
+    padding: 40px 16px 64px;
+
+    &__inner {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    /* ---- YouTube block ---- */
+    .yt-block {
+        margin-bottom: 32px;
+    }
+
+    /* ---- content ---- */
+    &__content {
+        position: relative;
+    }
+
+    /* ---- title ---- */
+    &__title {
+        font-weight: 700;
+        line-height: 1.25;
+        letter-spacing: 0.03em;
+        font-size: clamp(34px, 7vw, 42px);
+        margin-bottom: 24px;
+        text-align: right;
+
+        &-em {
+            color: $main-color;
+        }
+    }
+
+
+    &__bg {
+        position: relative;
+        margin: 0 -16px 32px;
+        height: min(64vw, 420px);
+        overflow: hidden;
+
+        /* ✅ 1枚に合成：全体を薄く＋上白グラデ＋下白グラデ＋画像 */
+        background-image:
+            /* 全体を薄くする白フィルター */
+            linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
+            /* 上：白→透明 */
+            linear-gradient(to bottom,
+                rgba(255, 255, 255, 1) 0%,
+                rgba(255, 255, 255, 0.85) 35%,
+                rgba(255, 255, 255, 0) 100%),
+            /* 下：白→透明 */
+            linear-gradient(to top,
+                rgba(255, 255, 255, 1) 0%,
+                rgba(255, 255, 255, 0.85) 35%,
+                rgba(255, 255, 255, 0) 100%),
+            /* 背景画像 */
+            url("../img/top/workstyle_bg.jpg");
+
+        /* 上下グラデは上/下だけに敷く */
+        background-size:
+            cover,
+            /* 白フィルター */
+            100% 35%,
+            /* 上グラデ */
+            100% 35%,
+            /* 下グラデ */
+            cover;
+        /* 画像 */
+
+        background-position:
+            center,
+            top,
+            bottom,
+            center;
+
+        background-repeat: no-repeat;
+        background-size: cover, 100% 35%, 100% 35%, cover;
+    }
+
+    &__bg-label {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        writing-mode: vertical-rl;
+        font-size: 1.2rem;
+        color: #777;
+        letter-spacing: 0.1em;
+        z-index: 1;
+    }
+
+    /* ---- points ---- */
+    &__points {
+        margin-top: -80px; // 背景に少しかぶせる
+        position: relative;
+        z-index: 2;
+    }
+
+    .bubble {
+        margin-left: 12px;
+        margin-bottom: 20px;
+    }
+
+    /* ---- list ---- */
+    &__list {
+        margin-bottom: 40px;
+    }
+
+    /* ---- button ---- */
+    &__btn-wrap {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* =========================
+   MEDIA（SP）
+========================= */
+.media {
+    padding: 40px 16px 64px;
+
+    &__inner {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    /* YouTube block は共通コンポーネント */
+    .yt-block {
+        margin-bottom: 32px;
+    }
+
+    &__content {
+        position: relative;
+        padding-top: 10px;
+    }
+
+    /* 縦見出し（右） */
+    &__vertical {
+        position: absolute;
+        top: 0;
+        right: 0;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        line-height: 1.3;
+        font-size: clamp(32px, 10vw, 42px);
+
+        &-em {
+            color: $main-color;
+            display: inline-block;
+        }
+    }
+
+    /* 斜めの薄いアイコン（左側） */
+    &__illust {
+        position: absolute;
+        left: -30px;
+        top: 160px;
+
+        width: min(74vw, 500px);
+        height: min(74vw, 500px);
+
+        background: url("../img/top/media_illust.png") center / contain no-repeat;
+        // opacity: 0.1;
+        transform: rotate(-6deg);
+        transform-origin: left top;
+
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    /* media の背景イラストだけ：共通アニメに rotate を足す */
+    .media__illust.js-slidein-left-illust {
+        transform: translateX(-40px) rotate(-6deg);
+    }
+
+    .media__illust.js-slidein-left-illust.is-show {
+        transform: translateX(0) rotate(-6deg);
+    }
+
+    /* points */
+    &__points {
+        /* 縦見出しとイラストがあるので少し下げる */
+        padding-top: 460px;
+    }
+
+    .bubble {
+        margin-left: 20px;
+        margin-bottom: 18px;
+    }
+
+    &__list {
+        margin-bottom: 34px;
+    }
+
+    &__btn-wrap {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
+/* =========================
+   CHANNEL（SP）
+========================= */
+.channel {
+    padding: 48px 0 64px;
+    background: $main-color; // 常に白
+
+    &__inner {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 16px;
+    }
+
+    /* ---- title ---- */
+    &__title {
+        font-weight: 600;
+        font-size: clamp(28px, 6.5vw, 36px);
+        line-height: 1.3;
+        text-align: center;
+        color: #fff;
+        margin-bottom: 32px;
+    }
+
+    /* ---- videos ---- */
+    &__videos {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 40px;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    &__video {
+        width: 100%;
+    }
+
+    &__video-inner {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: #000;
+        border-radius: 6px;
+        overflow: hidden;
+
+        iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    }
+
+    /* ---- button ---- */
+    &__btn-wrap {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* =========================
+   BUTTON（CHANNEL専用）
+========================= */
+.btn--white {
+    background: #fff;
+    color: $main-color;
+}
+
+/* =========================
+   COMPANY（SP）
+========================= */
+.company {
+    padding: 48px 16px 64px;
+    background: #fff;
+
+    &__inner {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    /* ---- title ---- */
+    &__title {
+        text-align: center;
+        font-weight: 700;
+        font-size: clamp(28px, 6.5vw, 36px);
+        letter-spacing: 0.04em;
+        margin-bottom: 32px;
+        color: $text-color;
+    }
+
+    /* ---- movie ---- */
+    &__movie {
+        margin-bottom: 40px;
+
+        /* yt-block は共通コンポーネントを使用 */
+        .yt-block {
+            margin-bottom: 0;
+        }
+
+        .yt-block__caption {
+            margin-top: 8px;
+            font-size: 1.2rem;
+            color: #777;
+            text-align: right;
+        }
+    }
+
+    /* ---- button ---- */
+    &__btn-wrap {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* =========================
+   RECRUIT（SP）
+========================= */
+.recruit {
+    position: relative;
+    padding: 72px 0 88px;
+    overflow: hidden;
+
+    /* 背景画像 */
+    background: url("../img/top/recruit_bg.jpg") center / cover no-repeat;
+
+    /* 白フィルター */
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.5);
+        z-index: 0;
+    }
+
+    &__inner {
+        position: relative;
+        z-index: 1;
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    &__title {
+        text-align: center;
+        font-weight: 700;
+        font-size: clamp(28px, 6.5vw, 36px);
+        letter-spacing: 0.04em;
+        margin-bottom: 32px;
+        color: $text-color;
+
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+
+        &.is-show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* =========================
+       CTAデザイン流用
+    ========================= */
+    .cta_inner {
+        position: relative;
+        z-index: 1;
+
+        .cta_kicker {
+            margin-bottom: 1.4rem;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.5;
+            letter-spacing: 0.02em;
+            color: $text-color;
+
+            span {
+                color: $main-color;
+            }
+        }
+
+        .cta_text {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.8;
+            letter-spacing: 0.02em;
+            color: $text-color;
+            margin-bottom: 2.2rem;
+        }
+
+        .cta_bar {
+            margin-bottom: 2rem;
+            display: inline-block;
+            background: transparent;
+            border-radius: 0 2px 2px 0;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .cta_note {
+            margin-bottom: 4rem;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: $text-color;
+        }
+
+        .cta_kicker,
+        .cta_text,
+        .cta_note {
+            padding: 0 16px;
+        }
+    }
+
+    &__btn-wrap {
+        display: flex;
+        justify-content: center;
+
+        a {
+            width: min(70vw, 360px);
+            height: 72px;
+            background-color: $point-color;
+
+            &:hover {
+                background-color: $point-color;
+            }
+        }
+    }
+
+    /* =========================
+       CTAアニメ初期状態
+    ========================= */
+    .js-cta-kicker,
+    .js-cta-text,
+    .js-cta-note,
+    .js-cta-btn {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    .js-cta-bar {
+        position: relative;
+        display: inline-block;
+        padding: 16px 16px;
+        overflow: hidden;
+        border-radius: 0 2px 2px 0;
+
+        span {
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(6px);
+            display: inline-block;
+            color: #fff;
+            white-space: nowrap;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: $main-color;
+            transform: scaleX(0);
+            transform-origin: left;
+            z-index: 1;
+        }
+    }
+
+    /* =========================
+       is-showで発火
+    ========================= */
+    &.is-show {
+        .js-cta-kicker {
+            animation: ctaFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation-delay: 0.2s;
+        }
+
+        .js-cta-text {
+            animation: ctaFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation-delay: 0.45s;
+        }
+
+        .js-cta-bar::before {
+            animation: ctaBarWipe 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation-delay: 0.75s;
+        }
+
+        .js-cta-bar span {
+            animation: ctaFadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation-delay: 0.95s;
+        }
+
+        .js-cta-note {
+            animation: ctaFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation-delay: 1.2s;
+        }
+
+        .js-cta-btn {
+            animation: ctaFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation-delay: 1.45s;
+        }
+    }
+}
+
+/* =========================
+   RECRUIT CTA ANIMATION
+========================= */
+@keyframes ctaFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes ctaBarWipe {
+    to {
+        transform: scaleX(1);
+    }
+}
+
+.pc {
+    display: none;
+}

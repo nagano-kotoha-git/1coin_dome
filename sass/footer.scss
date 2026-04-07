@@ -1,0 +1,54 @@
+/* =========================
+    色変数
+========================= */
+@use "common" as *;
+
+
+.footer {
+    background: $main-color;
+    color: #fff;
+    padding-top: 4rem;
+
+    .footer_inner {
+        margin: 0 auto;
+        padding: 0 40px;
+
+        .footer_left {
+            .footer__brand {
+                display: block;
+                margin-bottom: 20px;
+
+                img {
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            .footer_btn {
+                display: inline-block;
+                width: 100%;
+                border-radius: 3px;
+                padding: 3rem 0;
+                font-size: 16px;
+                font-weight: 600;
+                text-align: center;
+                letter-spacing: 0.03em;
+                color: $main-color;
+                background-color: #fff;
+                position: relative;
+                transition: color 0.5s ease;
+            }
+        }
+
+        .footer_nav {
+            display: none;
+        }
+    }
+
+    .footer_bottom {
+        padding: 2rem 0;
+        font-size: 12px;
+        text-align: center;
+    }
+}
