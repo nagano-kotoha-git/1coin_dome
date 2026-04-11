@@ -115,6 +115,12 @@
     .crewfirst {
         padding: 120px 24px;
 
+        &__visual {
+            position: static;
+            margin-top: 0;
+            min-height: 0;
+        }
+
         &__movie {
             margin-bottom: 26px;
         }
