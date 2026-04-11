@@ -113,7 +113,7 @@
     }
 
     .crewfirst {
-        padding: 0 24px;
+        padding: 120px 24px;
 
         &__movie {
             margin-bottom: 26px;
@@ -148,6 +148,7 @@
         &__content {
             position: relative;
             padding-top: 20px;
+            padding-bottom: 100px;
             max-width: 1040px;
             margin: 0 auto;
         }
