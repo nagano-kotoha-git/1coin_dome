@@ -153,7 +153,7 @@ $(function () {
     /* =========================
        WORKSTYLE（1回点火）
     ========================= */
-    var $wsMovie = $(".workstyle .js-fadeup").first();
+    var $wsMovie = $(".workstyle .js-workstyle-movie");
     var $wsTitle = $(".workstyle .js-slidein-right");
     var $wsBg = $(".workstyle__bg.js-fadeup");
     var $wsBubble = $(".workstyle .js-pop");

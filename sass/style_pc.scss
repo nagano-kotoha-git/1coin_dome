@@ -205,11 +205,12 @@
     }
 
     .strength {
-        padding: 100px 24px 120px;
+        padding: 80px 24px 120px;
 
         &__main {
             max-width: 1040px;
             margin: 0 auto;
+            margin-bottom: 100px;
         }
 
         &__content {
@@ -298,6 +299,7 @@
             column-gap: 40px;
             align-items: start;
             position: relative;
+            margin-bottom: 80px;
         }
 
         /* ---- title（PC差分） ---- */
@@ -392,6 +394,7 @@
             grid-template-columns: 1fr minmax(0, 800px) 1fr;
             column-gap: 40px;
             align-items: start;
+            margin-bottom: 80px;
         }
 
         &__vertical {

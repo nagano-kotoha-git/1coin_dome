@@ -518,6 +518,7 @@ body.is-loading {
 
     &__main {
         margin-top: 18px;
+        margin-bottom: 40px;
     }
 
     &__title {
@@ -639,6 +640,7 @@ body.is-loading {
     /* ---- content ---- */
     &__content {
         position: relative;
+        margin-bottom: 40px;
     }
 
     /* ---- title ---- */
@@ -755,6 +757,7 @@ body.is-loading {
     &__content {
         position: relative;
         padding-top: 10px;
+        margin-bottom: 40px;
     }
 
     /* 縦見出し（右） */
