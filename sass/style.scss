@@ -465,6 +465,21 @@ body.is-loading {
         margin-bottom: 16px;
     }
 
+    .crewfirst__item:last-child {
+        .color-red {
+            color: #E83929;
+        }
+
+        .crewfirst__text::after {
+            content: "";
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: url("../img/top/nigao.png") center / contain no-repeat;
+            vertical-align: middle;
+        }
+    }
+
     &__btn-wrap {
         margin-top: 34px;
         display: flex;
