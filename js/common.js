@@ -23,11 +23,20 @@
     }
 })();
 
-$(window).on("load", function () {
-    $("body").removeClass("is-loading");
-    $(".page-loader").fadeOut(1000);
-});
 
+// ===== ページローダー =====
+$(window).on("load", function () {
+    // 読み込み完了後にSKIP表示
+    $(".page-loader__skip").addClass("is-show");
+    // 自動フェードアウト
+    setTimeout(function () {
+        $(".page-loader").fadeOut(600);
+    }, 7000);
+    // スキップ
+    $(".page-loader__skip").on("click", function () {
+        $(".page-loader").fadeOut(300);
+    });
+});
 
 // ハンバガーメニュー
 $(".openbtn").click(function () {
