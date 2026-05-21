@@ -68,3 +68,11 @@ $(".js-lost-item-line").on("click", function () {
         event_label: 'お忘れ物LINE'
     });
 });
+
+// お問い合わせボタンクリックイベント
+$(".js-contact-btn").on("click", function () {
+    gtag('event', 'contact_click', {
+        event_category: 'contact',
+        event_label: 'お問い合わせボタン'
+    });
+});
