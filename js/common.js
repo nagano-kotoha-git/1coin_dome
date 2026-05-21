@@ -38,6 +38,16 @@ $(window).on("load", function () {
     });
 });
 
+$(".js-copy-address").on("click", function () {
+    const address = "〒550-0023 大阪府大阪市西区千代崎3丁目3番19号";
+    navigator.clipboard.writeText(address);
+    const $this = $(this);
+    $this.addClass("is-copied");
+    setTimeout(function () {
+        $this.removeClass("is-copied");
+    }, 2000);
+});
+
 // ハンバガーメニュー
 $(".openbtn").click(function () {
     $(this).toggleClass("active");

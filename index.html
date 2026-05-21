@@ -57,25 +57,30 @@
 <body class="is-loading">
     <div class="page-loader">
         <div class="page-loader__inner">
-            <img src="img/1coin_logo.svg" alt="ワンコインドーム">
-            <p>乗務員ファーストのタクシー会社</p>
-            <div class="attention">
-                <p>ー Attention ー</p>
-                <p>
-                    弊社は無線配車はしておりません
-                    GO、DiDi、Uber等の配車アプリをご利用くださいませ。
-                </p>
+            <div class="page-loader__branding">
+                <img src="img/1coin_logo.svg" alt="ワンコインドーム">
+                <p>乗務員ファーストのタクシー会社</p>
             </div>
-            <div class="loader-contact">
-                <p>
-                    お忘れ物のお問い合わせはこちらを<br>
-                    クリックしてくださいませ
-                </p>
-                <a href="https://lin.ee/v2FwFp0" class="btn btn--white">
-                    お忘れ物お問い合わせ
-                </a>
+            <div class="page-loader__content">
+                <div class="attention">
+                    <p>ー Attention ー</p>
+                    <p>
+                        弊社は無線配車はしておりませんGO、DiDi、Uber等の配車アプリをご利用くださいませ。
+                    </p>
+                </div>
+                <div class="loader-contact">
+                    <p>
+                        お忘れ物のお問い合わせはこちらを<br>
+                        クリックしてくださいませ
+                    </p>
+                    <a href="https://lin.ee/v2FwFp0" class="btn btn--white">
+                        お忘れ物お問い合わせ
+                    </a>
+                </div>
+                <button class="btn page-loader__skip">
+                    SKIP
+                </button>
             </div>
-            <button class="btn page-loader__skip">SKIP</button>
         </div>
     </div>
     <header>
@@ -582,11 +587,20 @@
                             <td>関西みらい銀行 大正通支店</td>
                         </tr>
                     </table>
-                    <div class="company__map">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d412.54444291599316!2d135.47458623439812!3d34.66778242762211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e7b16271e789%3A0xb2c507ecde0f7f64!2z44CSNTUwLTAwMjMg5aSn6Ziq5bqc5aSn6Ziq5biC6KW_5Yy65Y2D5Luj5bSO77yT5LiB55uu77yT4oiS77yR77yZ!5e0!3m2!1sja!2sjp!4v1779264864443!5m2!1sja!2sjp"
-                            style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="company__map-wrap">
+                        <div class="company__map">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d412.54444291599316!2d135.47458623439812!3d34.66778242762211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e7b16271e789%3A0xb2c507ecde0f7f64!2z44CSNTUwLTAwMjMg5aSn6Ziq5bqc5aSn6Ziq5biC6KW_5Yy65Y2D5Luj5bSO77yT5LiB55uu77yT4oiS77yR77yZ!5e0!3m2!1sja!2sjp!4v1779264864443!5m2!1sja!2sjp"
+                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                        <p class="company__map-note js-copy-address">
+                            ナビの目的地は下記の住所を入力してください。
+                            <strong>
+                                〒550-0023<br>
+                                大阪府大阪市西区千代崎3丁目3番19号
+                            </strong>
+                        </p>
                     </div>
                 </div>
             </div>

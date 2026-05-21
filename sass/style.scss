@@ -972,17 +972,68 @@ body.is-loading {
         }
     }
 
-    &__map {
+    &__map-wrap {
         margin-top: 32px;
+    }
+
+    &__map {
         width: 100%;
         aspect-ratio: 4 / 3;
         overflow: hidden;
+        border-radius: 16px;
 
         iframe {
             display: block;
             width: 100%;
-            height: 260px;
+            height: 100%;
             border: 0;
+        }
+    }
+
+    &__map-note {
+        position: relative;
+        margin-top: 16px;
+        padding: 16px 20px;
+        border-radius: 12px;
+        background: #f5f9fc;
+        font-size: 14px;
+        line-height: 1.8;
+        color: #333;
+        cursor: pointer;
+        transition: background .3s;
+
+        &:hover {
+            background: #eaf5ff;
+        }
+
+        strong {
+            display: block;
+            margin-top: 4px;
+            font-size: 16px;
+            font-weight: 700;
+            color: $main-color;
+        }
+
+        &::after {
+            content: "コピーしました！";
+            position: absolute;
+            left: 50%;
+            bottom: -40px;
+            transform: translateX(-50%);
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: $main-color;
+            color: #fff;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: .3s;
+        }
+
+        &.is-copied::after {
+            opacity: 1;
+            visibility: visible;
         }
     }
 }
