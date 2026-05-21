@@ -58,3 +58,13 @@ $("#g-nav a").click(function () {
     $(".openbtn").removeClass("active");
     $("#g-nav").removeClass("panelactive");
 });
+
+// Google analytics関連
+
+// お忘れ物LINEクリックイベント
+$(".js-lost-item-line").on("click", function () {
+    gtag('event', 'lost_item_line_click', {
+        event_category: 'contact',
+        event_label: 'お忘れ物LINE'
+    });
+});
