@@ -79,8 +79,9 @@ if ($notice.length) {
     });
 }
 
-// Google analytics関連
 
+
+// Google analytics関連
 
 // Googleアナリティクスのイベントトラッキング
 // お忘れ物LINEクリックイベント
