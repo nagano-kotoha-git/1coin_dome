@@ -250,12 +250,45 @@ $(function () {
     }
 
     /* =========================
+       CLOSE（1回点火）
+    ========================= */
+    var $clRoot = $(".close");
+    var $clTitle = $(".close .close__title");
+    var $clBubble = $(".close .js-pop");
+    var $clItems = $(".close .js-stagger-item");
+    var $clMovie = $(".close .close__movie");
+
+    var closeFired = false;
+
+    function revealClose() {
+        if (closeFired || !$clRoot.length) return;
+        if (!inView($clRoot, TRIGGER)) return;
+
+        closeFired = true;
+
+        $clTitle.addClass("is-show");
+
+        setTimeout(function () {
+            $clBubble.addClass("is-show");
+        }, 150);
+
+        $clItems.each(function (i) {
+            var $item = $(this);
+            setTimeout(function () {
+                $item.addClass("is-show");
+            }, 300 + i * 120);
+        });
+
+        setTimeout(function () {
+            $clMovie.addClass("is-show");
+        }, 300 + $clItems.length * 120 + 200);
+    }
+
+    /* =========================
        COMPANY（1回点火）
     ========================= */
     var $coRoot = $(".company");
-    var $coTitle = $(".company .js-fadeup").first();
-    var $coMovie = $(".company .company__movie.js-fadeup");
-    var $coBtn = $(".company .js-btn");
+    var $coTitle = $(".company .company__title");
 
     var companyFired = false;
 
@@ -265,21 +298,7 @@ $(function () {
 
         companyFired = true;
 
-        if ($coTitle.length) {
-            $coTitle.addClass("is-show");
-        }
-
-        setTimeout(function () {
-            if ($coMovie.length) {
-                $coMovie.addClass("is-show");
-            }
-        }, 200);
-
-        setTimeout(function () {
-            if ($coBtn.length) {
-                $coBtn.addClass("is-show");
-            }
-        }, 400);
+        $coTitle.addClass("is-show");
     }
 
     /* =========================
@@ -313,6 +332,7 @@ $(function () {
         revealWorkstyle();
         revealMedia();
         revealChannel();
+        revealClose();
         revealCompany();
         revealRecruit();
     }

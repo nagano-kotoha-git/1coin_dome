@@ -13,10 +13,18 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 48px;
 
             .footer_left {
-                flex: 0 1 25%;
-                justify-items: start;
+                flex: 0 1 48%;
+                display: flex;
+                align-items: center;
+                gap: 32px;
+
+                .footer__info {
+                    flex: 0 1 48%;
+                    margin-bottom: 0;
+                }
 
                 .footer__brand {
                     margin-bottom: 20px;
@@ -34,6 +42,35 @@
                         opacity: 0.5;
                     }
                 }
+
+                .footer__contact {
+                    font-size: 12px;
+                    line-height: 1.6;
+                }
+            }
+
+            .footer-lost-item {
+                flex: 0 1 320px;
+                padding: 20px;
+                border-radius: 14px;
+
+                &__title {
+                    font-size: 16px;
+                }
+
+                &__text {
+                    font-size: 13px;
+                }
+
+                &__btn {
+                    width: 100%;
+                    min-height: 54px;
+                    transition: opacity 0.4s ease;
+
+                    &:hover {
+                        opacity: 0.7;
+                    }
+                }
             }
 
             .footer_nav {
@@ -41,7 +78,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
-                flex: 0 1 70%;
+                flex: 0 1 48%;
             }
 
             .footer_list_1,
@@ -72,12 +109,12 @@
                     }
 
                     &:hover {
-                        opacity: 0.6; // ← ちょっと薄く
+                        opacity: 0.6;
                     }
 
                     &:hover::before {
                         transform: translate(6px, -50%);
-                        opacity: 0.6; // ← 線も一緒に薄く
+                        opacity: 0.6;
                     }
                 }
             }

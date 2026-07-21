@@ -87,8 +87,8 @@
             transform: translateY(-3px);
         }
     }
-s
-    .page-loader {
+
+    s .page-loader {
         padding: 40px;
 
         &__inner {
@@ -544,18 +544,72 @@ s
     }
 
     /* =========================
-   COMPANY（PC）
+   CLOSE（PC）
 ========================= */
-    .company {
-        padding: 120px 24px 140px;
+    .close {
+        padding: 120px 24px 80px;
 
         &__inner {
             max-width: 1040px;
+            margin: 0 auto;
+        }
+
+        &__title {
+            font-size: 68px;
+            line-height: 1.15;
+            margin-bottom: 60px;
+        }
+
+        .bubble {
+            margin-bottom: 28px;
+        }
+
+        &__list {
+            width: 1000px;
+            margin: 0 auto 100px;
+        }
+
+        &__item {
+            width: fit-content;
+
+            &--step1 {
+                margin-left: 0;
+            }
+
+            &--step2 {
+                margin-left: 80px;
+            }
+
+            &--step3 {
+                margin-left: 160px;
+            }
+
+            &--step4 {
+                margin-left: 240px;
+            }
+        }
+
+        &__movie {
+            max-width: 1040px;
+            margin: 0 auto;
+        }
+    }
+
+
+    /* =========================
+   COMPANY（PC）
+========================= */
+    .company {
+        padding: 80px 24px 140px;
+
+        &__inner {
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         &__title {
             font-size: 42px;
-            margin-bottom: 56px;
+            margin-bottom: 32px;
             letter-spacing: 0.05em;
         }
 
@@ -686,7 +740,48 @@ s
         }
     }
 
+    /* =========================
+    配車案内 固定表示（PC）
+========================= */
+    .dispatch-notice {
+        left: auto;
+        right: 24px;
+        bottom: 24px;
+        width: min(460px, calc(100vw - 48px));
+
+        padding: 16px 52px 16px 20px;
+        border-radius: 14px;
+
+        &__close {
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+        }
+
+        &__close::before,
+        &__close::after {
+            width: 18px;
+        }
+
+        &__text {
+            font-size: 14px;
+            line-height: 1.7;
+            text-align: left;
+        }
+
+        &__label {
+            margin-right: 8px;
+            padding: 3px 10px;
+            font-size: 12px;
+        }
+    }
+
     .pc {
         display: block;
+    }
+
+    .sp {
+        display: none;
     }
 }

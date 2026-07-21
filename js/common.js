@@ -25,19 +25,21 @@
 
 
 // ===== ページローダー =====
-$(window).on("load", function () {
-    // 読み込み完了後にSKIP表示
-    $(".page-loader__skip").addClass("is-show");
-    // 自動フェードアウト
-    setTimeout(function () {
-        $(".page-loader").fadeOut(600);
-    }, 7000);
-    // スキップ
-    $(".page-loader__skip").on("click", function () {
-        $(".page-loader").fadeOut(300);
-    });
-});
+// $(window).on("load", function () {
+//     // 読み込み完了後にSKIP表示
+//     $(".page-loader__skip").addClass("is-show");
+//     // 自動フェードアウト
+//     setTimeout(function () {
+//         $(".page-loader").fadeOut(600);
+//     }, 7000);
+//     // スキップ
+//     $(".page-loader__skip").on("click", function () {
+//         $(".page-loader").fadeOut(300);
+//     });
+// });
 
+
+// 住所コピー
 $(".js-copy-address").on("click", function () {
     const address = "〒550-0023 大阪府大阪市西区千代崎3丁目3番19号";
     navigator.clipboard.writeText(address);
@@ -59,8 +61,18 @@ $("#g-nav a").click(function () {
     $("#g-nav").removeClass("panelactive");
 });
 
+
+// 追従フッター閉じる
+var $dispatchNotice = $(".dispatch-notice");
+
+$(".dispatch-notice__close").on("click", function () {
+    $dispatchNotice.hide();
+});
+
 // Google analytics関連
 
+
+// Googleアナリティクスのイベントトラッキング
 // お忘れ物LINEクリックイベント
 $(".js-lost-item-line").on("click", function () {
     gtag('event', 'lost_item_line_click', {

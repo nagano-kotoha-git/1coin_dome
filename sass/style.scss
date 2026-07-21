@@ -375,7 +375,7 @@ body.is-loading {
    ABOUT（SP）
 ========================= */
 .about {
-    padding: 44px 16px 56px;
+    padding: 60px 16px 20px;
 
     background: url("../img/top/about_bg.jpg") center / cover no-repeat;
     position: relative;
@@ -449,7 +449,7 @@ body.is-loading {
    CREWFIRST（SP）
 ========================= */
 .crewfirst {
-    padding: 60px 16px 64px;
+    padding: 40px 16px 64px;
 
     &__content {
         position: relative;
@@ -466,21 +466,6 @@ body.is-loading {
         margin-bottom: 16px;
     }
 
-    .crewfirst__item:last-child {
-        .color-red {
-            color: #E83929;
-        }
-
-        .crewfirst__text::after {
-            content: "";
-            display: inline-block;
-            width: 24px;
-            height: 24px;
-            background: url("../img/top/nigao.png") center / contain no-repeat;
-            vertical-align: middle;
-        }
-    }
-
     &__btn-wrap {
         margin-top: 34px;
         display: flex;
@@ -490,7 +475,7 @@ body.is-loading {
     &__visual {
         position: relative;
         margin-top: 56px;
-        min-height: clamp(420px, 78vw, 620px);
+        min-height: clamp(480px, 78vw, 620px);
     }
 
     &__vertical {
@@ -899,6 +884,20 @@ body.is-loading {
         }
     }
 
+    &__loading,
+    &__error {
+        grid-column: 1 / -1;
+        padding: 24px 16px;
+        color: #fff;
+        font-size: 1.4rem;
+        line-height: 1.7;
+        text-align: center;
+    }
+
+    &__error {
+        opacity: 0.8;
+    }
+
     /* ---- button ---- */
     &__btn-wrap {
         display: flex;
@@ -915,10 +914,10 @@ body.is-loading {
 }
 
 /* =========================
-   COMPANY（SP）
+   CLOSE（SP）
 ========================= */
-.company {
-    padding: 48px 16px 64px;
+.close {
+    padding: 60px 16px 20px;
     background: #fff;
 
     &__inner {
@@ -926,21 +925,44 @@ body.is-loading {
         margin: 0 auto;
     }
 
-    /* ---- title ---- */
     &__title {
-        text-align: center;
         font-weight: 700;
-        font-size: clamp(28px, 6.5vw, 36px);
-        letter-spacing: 0.04em;
-        margin-bottom: 32px;
-        color: $text-color;
+        font-size: clamp(34px, 7vw, 42px);
+        line-height: 1.25;
+        letter-spacing: .03em;
+
+        &-em {
+            color: $main-color;
+        }
     }
 
-    /* ---- movie ---- */
+    .bubble {
+        margin-top: 40px;
+        margin-bottom: 18px;
+    }
+
+    &__list {
+        margin-bottom: 40px;
+    }
+
+    .points-list__item:last-child {
+        .color-red {
+            color: #E83929;
+        }
+
+        .points-list__text::after {
+            content: "";
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: url("../img/top/nigao.png") center / contain no-repeat;
+            vertical-align: middle;
+        }
+    }
+
     &__movie {
         margin-bottom: 40px;
 
-        /* yt-block は共通コンポーネントを使用 */
         .yt-block {
             margin-bottom: 0;
         }
@@ -951,6 +973,29 @@ body.is-loading {
             color: #777;
             text-align: right;
         }
+    }
+}
+
+
+/* =========================
+   COMPANY（SP）
+========================= */
+.company {
+    padding: 20px 16px 64px;
+    background: #fff;
+
+    &__inner {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    &__title {
+        text-align: center;
+        font-weight: 700;
+        font-size: clamp(28px, 6.5vw, 36px);
+        letter-spacing: 0.04em;
+        margin-bottom: 32px;
+        color: $text-color;
     }
 
     &__table {
@@ -1248,6 +1293,85 @@ body.is-loading {
     }
 }
 
+/* =========================
+   配車案内 固定表示（SP）
+========================= */
+.dispatch-notice {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    z-index: 9000;
+
+    padding: 12px 42px 12px 16px;
+    border-radius: 12px;
+    background: #fff;
+    border: 2px solid $main-color;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+
+    &__close {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        z-index: 2;
+
+        width: 30px;
+        height: 30px;
+        padding: 0;
+
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    &__close::before,
+    &__close::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 18px;
+        height: 2px;
+        border-radius: 999px;
+        background: $main-color;
+    }
+
+    &__close::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &__close::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    &__text {
+        margin: 0;
+        color: $text-color;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1.6;
+        letter-spacing: 0.03em;
+        text-align: center;
+    }
+
+    &__label {
+        display: inline-block;
+        margin-right: 6px;
+        padding: 2px 8px;
+        border-radius: 999px;
+        background: $main-color;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+    }
+}
+
+
 .pc {
     display: none;
+}
+
+.sp {
+    display: block;
 }
