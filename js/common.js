@@ -62,12 +62,22 @@ $("#g-nav a").click(function () {
 });
 
 
-// 追従フッター閉じる
-var $dispatchNotice = $(".dispatch-notice");
+// =========================
+// 配車案内：タブを閉じるまで非表示
+// =========================
+var $notice = $(".dispatch-notice");
+var $noticeClose = $(".dispatch-notice__close");
 
-$(".dispatch-notice__close").on("click", function () {
-    $dispatchNotice.hide();
-});
+if ($notice.length) {
+    if (sessionStorage.getItem("dispatchNoticeClosed") === "true") {
+        $notice.hide();
+    }
+
+    $noticeClose.on("click", function () {
+        $notice.hide();
+        sessionStorage.setItem("dispatchNoticeClosed", "true");
+    });
+}
 
 // Google analytics関連
 
