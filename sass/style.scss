@@ -50,7 +50,7 @@ body.is-loading {
     display: inline-block;
     padding: 10px 23px;
 
-    border: 3px solid #1b99e9;
+    border: 3px solid $main-color;
     border-radius: 3px;
     background-color: #ffffff;
 
@@ -58,7 +58,7 @@ body.is-loading {
     font-size: 16px;
     font-weight: 700;
     line-height: 1.5;
-    color: #1b99e9;
+    color: $main-color;
 
     transform: rotate(-3deg);
     transform-origin: left bottom;
@@ -72,7 +72,7 @@ body.is-loading {
 
     border-style: solid;
     border-width: 16px 16.5px 0 16.5px;
-    border-color: #1b99e9 transparent transparent;
+    border-color: $main-color transparent transparent;
 
     translate: -50% 100%;
 }
