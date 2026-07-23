@@ -254,34 +254,40 @@ $(function () {
     ========================= */
     var $clRoot = $(".close");
     var $clTitle = $(".close .close__title");
+    var $clPhotos = $(".close .close__photo");
     var $clBubble = $(".close .js-pop");
     var $clItems = $(".close .js-stagger-item");
     var $clMovie = $(".close .close__movie");
-
     var closeFired = false;
 
     function revealClose() {
         if (closeFired || !$clRoot.length) return;
         if (!inView($clRoot, TRIGGER)) return;
-
         closeFired = true;
-
+        // タイトル
         $clTitle.addClass("is-show");
-
+        // 画像を順番に表示
+        $clPhotos.each(function (i) {
+            var $photo = $(this);
+            setTimeout(function () {
+                $photo.addClass("is-show");
+            }, 180 + i * 180);
+        });
+        // 吹き出し
         setTimeout(function () {
             $clBubble.addClass("is-show");
-        }, 150);
-
+        }, 600);
+        // リストを順番に表示
         $clItems.each(function (i) {
             var $item = $(this);
             setTimeout(function () {
                 $item.addClass("is-show");
-            }, 300 + i * 120);
+            }, 760 + i * 120);
         });
-
+        // 動画
         setTimeout(function () {
             $clMovie.addClass("is-show");
-        }, 300 + $clItems.length * 120 + 200);
+        }, 760 + $clItems.length * 120 + 220);
     }
 
     /* =========================

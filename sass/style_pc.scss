@@ -440,7 +440,6 @@
         }
     }
 
-
     /* =========================
    MEDIA（PC）
 ========================= */
@@ -511,9 +510,6 @@
         }
     }
 
-
-
-
     /* =========================
    CHANNEL（PC）
 ========================= */
@@ -543,28 +539,67 @@
         }
     }
 
+
     /* =========================
    CLOSE（PC）
 ========================= */
     .close {
         padding: 120px 24px 80px;
+        overflow: hidden;
 
         &__inner {
+            position: relative;
             max-width: 1040px;
             margin: 0 auto;
         }
 
         &__title {
+            position: relative;
+            z-index: 3;
+            width: 100%;
             font-size: 68px;
             line-height: 1.15;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
+        }
+
+        &__visual {
+            position: absolute;
+            top: 140px;
+            right: -40px;
+            width: 470px;
+            height: 480px;
+            margin-top: 0;
+            z-index: 1;
+        }
+
+        &__photo {
+            max-width: 360px;
+
+            &--top {
+                right: 0;
+                top: 0;
+                transform: rotate(4deg);
+                transform-origin: left top;
+            }
+
+            &--bottom {
+                left: 0;
+                bottom: 0px;
+                transform: rotate(-4deg);
+                transform-origin: right bottom;
+            }
         }
 
         .bubble {
+            position: relative;
+            z-index: 3;
+            margin-top: 0;
             margin-bottom: 28px;
         }
 
         &__list {
+            position: relative;
+            z-index: 3;
             width: 1000px;
             margin: 0 auto 100px;
         }
@@ -594,7 +629,6 @@
             margin: 0 auto;
         }
     }
-
 
     /* =========================
    COMPANY（PC）
